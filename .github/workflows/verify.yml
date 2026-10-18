@@ -1,0 +1,24 @@
+name: Verify bundle
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * 1'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: protoLabsAI/protoAgent
+          ref: main
+          path: protoagent
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --frozen
+        working-directory: protoagent
+      - run: uv run --no-sync python "$GITHUB_WORKSPACE/scripts/verify_bundle.py" "$GITHUB_WORKSPACE"
+        working-directory: protoagent

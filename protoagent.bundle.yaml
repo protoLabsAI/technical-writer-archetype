@@ -1,0 +1,41 @@
+id: technical-writer-archetype
+name: Technical Writer
+version: 0.1.0
+description: >-
+  Writes and maintains documentation for a codebase: tutorials, guides, reference,
+  explanations, section audits, information architecture, and media planning.
+# This pack requires a core checkout/release containing the technical_writer plugin
+# and technical-writer soul preset. See README for the exact introduction revision.
+# No verified_against release claim until that core release exists.
+plugins:
+  - { id: technical_writer, builtin: true }
+enabled: [technical_writer]
+config_inputs:
+  - key: technical_writer.project
+    label: Local codebase
+    help: Registered as a managed project the agent can read and edit. Leave blank to onboard from chat.
+    type: path
+    project: true
+config:
+  filesystem:
+    enabled: true
+    allow_run: true
+    run_requires_approval: true
+    run_auto_approve:
+      - git status
+      - git diff
+      - git log
+      - git show
+      - git branch --show-current
+  onboarding:
+    enabled: true
+    root: ~/code
+    allow: ["github.com/*"]
+    write_default: true
+archetype:
+  label: Technical Writer
+  icon: BookOpen
+  soul_preset: technical-writer
+  blurb: Writes and maintains code-grounded docs, guides, and tutorials; audits content, organizes reader paths, and tracks media through verified delivery.
+# No plugin-tool contract: project filesystem/onboarding/command tools are core.
+# The verifier checks their binding separately from the prompt-only plugin.
