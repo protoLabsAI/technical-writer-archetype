@@ -12,6 +12,9 @@ older releases merely because they support archetypes. Core introduction is trac
 [protoAgent PR #4338](https://github.com/protoLabsAI/protoAgent/pull/4338); use a checkout
 containing that implementation until a release includes it.
 
+Verified against core commit `f44fde5432223307b4e88396a97f22c2dea124e7` on
+2026-10-18: [installation/setup smoke passed](https://github.com/protoLabsAI/technical-writer-archetype/actions/runs/39163477813).
+
 Choose **Technical Writer** in the new-agent picker. Supply a local checkout in
 **Local codebase**, or leave it blank and give the agent a GitHub repository from
 chat. An existing compatible host can also install the bundle:
