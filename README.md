@@ -9,7 +9,7 @@ owns systematic audits, reader paths, media planning, and verified delivery.
 Use a protoAgent build containing the `technical_writer` bundled plugin and
 `technical-writer` soul preset. This is a new core addition, not available in
 older releases merely because they support archetypes. Core introduction is tracked in
-[protoAgent #4335](https://github.com/protoLabsAI/protoAgent/issues/4335); use a checkout
+[protoAgent PR #4338](https://github.com/protoLabsAI/protoAgent/pull/4338); use a checkout
 containing that implementation until a release includes it.
 
 Choose **Technical Writer** in the new-agent picker. Supply a local checkout in
